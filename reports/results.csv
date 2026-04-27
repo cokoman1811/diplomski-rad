@@ -1,0 +1,16 @@
+missing_percentage,method,MAE,RMSE
+10,Spline interpolation,1.111,1.3806
+10,Moving average,1.1274,1.3993
+10,Random Forest,1.2022,1.4671
+10,Linear interpolation,1.1683,1.4673
+10,KNN imputation,1.2702,1.6048
+20,Spline interpolation,1.1224,1.3902
+20,Linear interpolation,1.1921,1.4736
+20,Random Forest,1.1949,1.4756
+20,Moving average,1.2078,1.5285
+20,KNN imputation,1.5202,1.9131
+30,Spline interpolation,1.1593,1.4259
+30,Random Forest,1.1566,1.4312
+30,Linear interpolation,1.2092,1.4821
+30,Moving average,1.2653,1.5981
+30,KNN imputation,1.55,1.9474
