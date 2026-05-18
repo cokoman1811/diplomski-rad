@@ -7,12 +7,12 @@ from sklearn.impute import KNNImputer
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
+from .paths import FIGURES_DIR, TABLES_DIR, ensure_project_dirs
+
 
 def create_folders():
+    ensure_project_dirs()
     os.makedirs("data", exist_ok=True)
-    os.makedirs("figures", exist_ok=True)
-    os.makedirs("reports", exist_ok=True)
-    os.makedirs("models", exist_ok=True)
 
 
 def create_synthetic_temperature_data():
@@ -165,7 +165,7 @@ def plot_original_data(original_df):
     plt.xlabel("Time")
     plt.ylabel("Temperature")
     plt.tight_layout()
-    plt.savefig("figures/original_temperature_data.png")
+    plt.savefig(FIGURES_DIR / "original_temperature_data.png")
     plt.close()
 
 
@@ -206,7 +206,7 @@ def plot_method_result(original_df, missing_df, filled_df, method_name, missing_
     plt.tight_layout()
 
     file_name = method_name.lower().replace(" ", "_")
-    plt.savefig(f"figures/{file_name}_{int(missing_ratio * 100)}_percent.png")
+    plt.savefig(FIGURES_DIR / f"{file_name}_{int(missing_ratio * 100)}_percent.png")
     plt.close()
 
 
@@ -263,7 +263,7 @@ def main():
     results_df = pd.DataFrame(results)
     results_df = results_df.sort_values(["missing_percentage", "RMSE"])
 
-    results_df.to_csv("reports/results.csv", index=False)
+    results_df.to_csv(TABLES_DIR / "results.csv", index=False)
 
     print("\nExperiment finished successfully.")
     print("\nResults:")
