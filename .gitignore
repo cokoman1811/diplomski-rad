@@ -17,5 +17,7 @@ results/figures/*
 results/tables/*
 !results/tables/.gitkeep
 
+results/report.html
+
 .DS_Store
 Thumbs.db

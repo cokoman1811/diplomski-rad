@@ -1,69 +1,153 @@
 ﻿# AGENTS.md
 
+## Project role
+
+You are an AI coding assistant helping with a master's thesis project.
+
+The project topic is:
+
+**Interpolacija podataka pomoću strojnog učenja**
+
+English title:
+
+**Data interpolation using machine learning**
+
+Your job is to help with:
+- Python code
+- project structure
+- documentation
+- experiment design
+- debugging
+- result analysis
+- thesis writing notes
+
+Do not make large changes without explaining the plan first.
+
+---
+
 ## Project overview
 
-This is a master's thesis project about interpolation of time-series data using machine learning.
+This project compares classical interpolation methods and machine learning methods for reconstructing missing values in time-series data.
 
-Thesis topic:
-Interpolacija podataka pomoću strojnog učenja.
-
-The goal is to compare classical interpolation methods and machine learning methods for reconstructing artificially removed values from high-resolution time-series data.
-
-## Main experiment
+The main idea is:
 
 1. Load high-resolution time-series data.
-2. Artificially degrade the data by keeping only every nth value.
+2. Artificially reduce temporal resolution by keeping only every nth value.
 3. Treat removed values as missing.
 4. Reconstruct missing values using interpolation and machine learning.
-5. Compare methods using MAE, RMSE and R2.
-6. Save result tables and figures.
+5. Compare methods using evaluation metrics.
+6. Save result tables and plots for the thesis.
+
+---
 
 ## Dataset
 
 Main dataset:
-Jena Climate dataset.
+
+**Jena Climate dataset**
+
+Reason for using it:
+
+- It contains high-resolution meteorological time-series data.
+- Measurements are recorded every 10 minutes.
+- It is suitable for simulating lower temporal resolution.
+- Temperature is continuous and easy to visualize.
 
 Main target variable:
-Temperature.
 
-## Important docs
+**Temperature**
 
-Before making changes, always read:
+---
 
-- docs/project.md
-- docs/style.md
-- docs/workflow.md
-- docs/progress.md
-- docs/decisions.md
+## Methods
+
+Classical interpolation methods:
+
+- forward fill
+- linear interpolation
+- time interpolation
+- cubic interpolation
+- spline interpolation
+
+Machine learning methods:
+
+- RandomForestRegressor
+- MLPRegressor
+
+Do not add LSTM, Transformer, TensorFlow or PyTorch unless explicitly requested.
+
+---
+
+## Evaluation metrics
+
+Use:
+
+- MAE
+- RMSE
+- R2 score
+
+Important rule:
+
+Evaluation must be performed only on values that were artificially removed.
+
+Do not evaluate on the full series unless explicitly requested.
+
+---
+
+## Important project documentation
+
+Before making any changes, always read these files:
+
+- `docs/project.md`
+- `docs/style.md`
+- `docs/workflow.md`
+- `docs/progress.md`
+- `docs/decisions.md`
+
+If these files do not exist, suggest creating them.
+
+---
 
 ## Coding rules
 
-- Keep code simple and readable.
+Follow these rules when writing code:
+
+- Use Python.
 - Use pandas, numpy, scikit-learn, scipy and matplotlib.
-- Do not add unnecessary frameworks.
-- Do not use deep learning libraries unless explicitly requested.
+- Keep code simple and readable.
+- Use English for code, variable names, function names and comments.
+- Use short docstrings for all important functions.
+- Prefer simple functions over complex abstractions.
 - Do not create a GUI.
-- Write short docstrings for functions.
-- Save result tables in results/tables/.
-- Save figures in results/figures/.
-- Do not commit or push unless explicitly asked.
+- Do not add unnecessary frameworks.
+- Do not over-engineer the project.
+- Do not rewrite the whole project unless explicitly asked.
+- Work on one file or one small task at a time.
 
-## Git rules
+---
 
-- Never add .venv/ to git.
-- Never add data/raw/ to git.
-- Never add data/processed/ to git.
-- Never add cache files.
-- Before suggesting a commit, check git status.
-- Use small commits with clear messages.
+## Folder rules
 
-## Documentation rule
+Expected project structure:
 
-After every important code change, update the relevant file in docs/.
-
-Examples:
-- If project goal changes, update docs/project.md.
-- If code style changes, update docs/style.md.
-- If workflow changes, update docs/workflow.md.
-- If a task is completed, update docs/progress.md.
-- If a technical decision is made, update docs/decisions.md.
+```text
+diplomski rad/
+├── AGENTS.md
+├── docs/
+│   ├── project.md
+│   ├── style.md
+│   ├── workflow.md
+│   ├── progress.md
+│   └── decisions.md
+├── data/
+│   ├── raw/
+│   └── processed/
+├── notebooks/
+├── src/
+├── results/
+│   ├── figures/
+│   └── tables/
+├── main.py
+├── requirements.txt
+├── README.md
+└── .gitignore

@@ -1,53 +1,32 @@
 ﻿# Style guide
 
+## Purpose
+
+This file defines the style rules for code, plots, documentation and thesis writing in this project.
+
+The goal is to keep the project simple, readable and suitable for a master's thesis.
+
+---
+
 ## Code style
 
-- Use English for code, variables and comments.
-- Use clear function names.
-- Use short docstrings.
+All code should be written in a clear and simple way.
+
+Rules:
+
+- Use Python.
+- Use English for code, variable names, function names and comments.
+- Use clear and descriptive names.
 - Keep functions small.
 - Avoid unnecessary abstraction.
-- Prefer readable code over clever code.
+- Avoid complicated code if a simple solution is enough.
+- Add short docstrings to important functions.
+- Add comments only when they help explain the logic.
+- Do not over-engineer the project.
+- Do not add unnecessary frameworks.
 
-## File naming
+Good examples:
 
-Use snake_case for Python files.
-
-Examples:
-
-- data_loader.py
-- preprocessing.py
-- interpolation_methods.py
-- ml_models.py
-- evaluation.py
-- plots.py
-
-## Plot style
-
-All plots should have:
-
-- clear title
-- x-axis label
-- y-axis label
-- legend when comparing methods
-- readable font size
-- saved as PNG in results/figures/
-
-## Thesis writing style
-
-The writing should be:
-
-- formal
-- clear
-- simple
-- suitable for a master's thesis
-- not overly complicated
-
-Avoid exaggerated claims.
-
-Use phrases like:
-
-- Rezultati pokazuju...
-- Metoda je ostvarila...
-- Usporedba pokazuje...
-- Jedno od ograničenja rada je...
+```python
+def load_temperature_series(file_path):
+    """Load temperature data as a pandas Series with datetime index."""
